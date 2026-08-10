@@ -21,6 +21,24 @@
           });
         });
       }
+
+      // Handle Cross-Origin Session Storage
+      window.addEventListener('message', (event) => {
+          if (event.data && event.data.type === 'SAVE_CREDENTIALS') {
+              localStorage.setItem('pwa_email', event.data.email);
+              localStorage.setItem('pwa_pass', event.data.password);
+          } else if (event.data && event.data.type === 'REQUEST_CREDENTIALS') {
+              const email = localStorage.getItem('pwa_email');
+              const pass = localStorage.getItem('pwa_pass');
+              const iframe = document.querySelector('iframe');
+              if (iframe && iframe.contentWindow) {
+                  iframe.contentWindow.postMessage({ type: 'PWA_CREDENTIALS', email: email, password: pass }, '*');
+              }
+          } else if (event.data && event.data.type === 'CLEAR_CREDENTIALS') {
+              localStorage.removeItem('pwa_email');
+              localStorage.removeItem('pwa_pass');
+          }
+      });
     </script>
     
     <style>
