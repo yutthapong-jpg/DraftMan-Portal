@@ -11,8 +11,15 @@
     <meta name="apple-mobile-web-app-title" content="DraftMan">
     <meta name="theme-color" content="#4f46e5">
 
-    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIkRyYWZ0TWFuIFBvcnRhbCIsCiAgInNob3J0X25hbWUiOiAiRHJhZnRNYW4iLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiI2ZmZmZmZiIsCiAgInRoZW1lX2NvbG9yIjogIiM0ZjQ2ZTUiCn0=">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/5956/5956592.png">
     <title>DraftMan Portal</title>
+    
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+      }
+    </script>
     
     <style>
         body, html {
