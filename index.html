@@ -34,6 +34,7 @@
               if (iframe && iframe.contentWindow) {
                   iframe.contentWindow.postMessage({ type: 'PWA_CREDENTIALS', email: email, password: pass }, '*');
               }
+
           } else if (event.data && event.data.type === 'CLEAR_CREDENTIALS') {
               localStorage.removeItem('pwa_email');
               localStorage.removeItem('pwa_pass');
@@ -58,6 +59,6 @@
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/a/macros/maximafurniture.com/s/AKfycbz3VKJ1uG1M82r3JdCJy6vQyIAShQr_NUrUjEMIdz9NeQcRuD6GCKECMn1s189aT7_NGg/exec"></iframe>
+    <iframe src="https://script.google.com/a/macros/maximafurniture.com/s/AKfycbz3VKJ1uG1M82r3JdCJy6vQyIAShQr_NUrUjEMIdz9NeQcRuD6GCKECMn1s189aT7_NGg/exec" allow="geolocation"></iframe>
 </body>
 </html>
